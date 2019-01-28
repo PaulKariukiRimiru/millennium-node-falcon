@@ -19,8 +19,12 @@
   "scripts": {
     "test": "jest",
     "test:dev": "yarn test --watch",
+    "test:coverage": "test --coverage",
+    "coveralls": "cat ./coverage/lcov.info | coveralls",
     "start:dev": "tsnd --respawn --transpileOnly --project ./tsconfig.json src/index.ts",
-    "lint": "tslint --project . --fix"
+    "lint": "tslint --project . --fix",
+    "build": "tsc",
+    "prebuild": "rimraf ./dist"
   },
   "repository": {
     "type": "git",
