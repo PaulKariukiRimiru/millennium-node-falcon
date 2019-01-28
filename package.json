@@ -1,0 +1,34 @@
+{
+  "name": "millennium-node-falcon",
+  "version": "0.0.1",
+  "description": "This is a custom node boilerplate project that combines node + express and various database systems.",
+  "main": "src/index.ts",
+  "dependencies": {},
+  "devDependencies": {
+    "ts-node-dev": "^1.0.0-pre.32",
+    "tslint": "^5.12.1",
+    "tslint-config-prettier": "^1.17.0",
+    "typescript": "^3.2.4"
+  },
+  "scripts": {
+    "test": "jest",
+    "start:dev": "tsnd --respawn --transpileOnly --project ./tsconfig.json src/index.ts",
+    "lint": "tslint --project . --fix"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PaulKariukiRimiru/millennium-node-falcon.git"
+  },
+  "keywords": [
+    "boilerplate",
+    "typescript",
+    "node",
+    "express"
+  ],
+  "author": "Paul Rimiru",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/PaulKariukiRimiru/millennium-node-falcon/issues"
+  },
+  "homepage": "https://github.com/PaulKariukiRimiru/millennium-node-falcon#readme"
+}
