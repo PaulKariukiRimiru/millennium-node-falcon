@@ -22,7 +22,7 @@
     "test:coverage": "test --coverage",
     "coveralls": "cat ./coverage/lcov.info | coveralls",
     "start:dev": "tsnd --respawn --transpileOnly --project ./tsconfig.json src/index.ts",
-    "lint": "tslint --project . --fix",
+    "lint": "tslint {src}/**/*.ts --fix",
     "build": "tsc",
     "prebuild": "rimraf ./dist"
   },
