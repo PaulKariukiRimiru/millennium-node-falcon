@@ -4,17 +4,19 @@
     "module": "commonjs",
     "target": "ES2017",
     "allowJs": true,
+    "strict": true,
     "noImplicitAny": true,
     "removeComments": true,
     "preserveConstEnums": true,
     "sourceMap": true,
-    "baseUrl": "src/"
+    "baseUrl": ".",
+    "rootDir": "."
   },
   "include": [
       "src/**/*"
   ],
   "exclude": [
       "node_modules",
-      "**/*.spec.ts"
+      "**/*.test.ts"
   ],
 }

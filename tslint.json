@@ -1,8 +1,10 @@
 {
     "defaultSeverity": "error",
     "extends": [
-        "tslint:recommended"
+        "tslint:recommended",
+        "tslint-microsoft-contrib"
     ],
+    "rulesDirectory": ["node_modules/tslint-microsoft-contrib"],
     "jsRules": {
         "max-line-length": {
             "options": [120]
@@ -12,15 +14,19 @@
         "max-line-length": {
             "options": [120]
         },
-        "new-parens": true,
-        "no-arg": true,
-        "no-bitwise": true,
         "no-conditional-assignment": true,
         "no-consecutive-blank-lines": false,
         "no-console": {
             "severity": "warning",
             "options": ["debug", "info", "log", "time", "timeEnd", "trace"]
         },
-        "quotemark":[true, "single"]
+        "quotemark":[true, "single"],
+        "no-invalid-template-strings": true,
+        "no-floating-promises": true,
+        "no-unused-variable": true,
+        "object-literal-sort-keys": [false],
+        "no-empty": true,
+        "ordered-imports": true,
+        "no-unused-expression": true,
     }
 }
