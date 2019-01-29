@@ -24,8 +24,7 @@
     "coveralls": "jest --coverage --coverageReporters=text-lcov | coveralls",
     "start:dev": "tsnd --respawn --transpileOnly --project ./tsconfig.json src/index.ts",
     "lint": "tslint {src}/**/*.ts --fix",
-    "build": "tsc",
-    "prebuild": "rimraf ./dist"
+    "build": "tsc"
   },
   "repository": {
     "type": "git",

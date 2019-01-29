@@ -77,7 +77,7 @@ jobs:
 
       - run:
           name: Submit coverage report to Coveralls.io
-          command: yarn coveralls
+          command: yarn run coveralls
 
   build:
     <<: *defaults
@@ -85,6 +85,10 @@ jobs:
     steps:
       - attach_workspace:
           at: ~/repo
+
+      - run:
+          name: Install rimraf
+          command: yarn add rimraf
 
       - run:
           name: Build TypeScript code
@@ -107,7 +111,7 @@ jobs:
 
       - run: 
           name: Install dot-json package
-          command: npm install dot-json
+          command: yarn add dot-json
 
       - run:
           name: Write version to package.json
