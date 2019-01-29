@@ -1,6 +1,5 @@
-export const home = () => {
-  // TODO: Add more stuff
-  console.log('Hello peaple');
+import { application } from './app';
 
-  return 'hello node';
-};
+export const server = application.listen(8081, () => {
+  console.log('all engines are warming on port 8081');
+});
