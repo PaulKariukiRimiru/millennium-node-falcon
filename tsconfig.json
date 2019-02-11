@@ -5,18 +5,20 @@
     "target": "ES2017",
     "allowJs": true,
     "strict": true,
-    "noImplicitAny": true,
+    "noImplicitAny": false,
     "removeComments": true,
     "preserveConstEnums": true,
     "sourceMap": true,
     "baseUrl": ".",
-    "rootDir": "."
+    "rootDir": ".",
+    "outDir": "dist"
   },
   "include": [
       "src/**/*"
   ],
   "exclude": [
       "node_modules",
-      "**/*.test.ts"
+      "**/*.test.ts",
+      "dist"
   ],
 }
