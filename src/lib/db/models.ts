@@ -1,7 +1,7 @@
-import { ClassAnnotation, FalconTable } from './interfaces';
+import { ClassAnnotation } from './interfaces';
 
 export const table = (name: string): ClassAnnotation => {
   return constructor => {
-    constructor.prototype[FalconTable] = name;
+    // constructor.prototype[FalconTable] = name;
   }
 } 
