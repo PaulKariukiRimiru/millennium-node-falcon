@@ -11,10 +11,12 @@
     "sourceMap": true,
     "baseUrl": ".",
     "rootDir": ".",
-    "outDir": "dist"
+    "outDir": "dist",
+    "experimentalDecorators": true
   },
   "include": [
-      "src/**/*"
+      "src/**/*",
+      "**/*.d.ts"
   ],
   "exclude": [
       "node_modules",

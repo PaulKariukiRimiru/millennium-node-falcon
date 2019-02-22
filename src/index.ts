@@ -1,14 +1,3 @@
-import { application } from './app';
-import { connectDB } from './db/index';
+require('dotenv').config();
 
-export const server = application.listen(8081, async () => {
-  console.log('creating database connection');
-
-  const dbStatus = await connectDB();
-
-  if(dbStatus.isLeft()) {
-    throw Error(dbStatus.value)
-  }
-
-  console.log('all engines running on port 8081');
-});
+export * from './lib';

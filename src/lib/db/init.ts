@@ -1,6 +1,5 @@
 import { MongoClient as mongo} from 'mongodb';
 import { Either, right, left } from 'fp-ts/lib/Either';
-import { dbName, dbUrl } from '../../pre-dev-start';
 
 let connectionResult: Either<string, string>;
 let database;
@@ -8,8 +7,8 @@ let connection;
 
 export const connectDB = async (): Promise<Either<string, string>> => {
   try {
-    connection = await mongo.connect(dbUrl!, { useNewUrlParser: true });
-    database = await connection.db(dbName);
+    connection = await mongo.connect(process.env.DB_URL!, { useNewUrlParser: true });
+    database = await connection.db(process.env.DB_NAME);
 
     connectionResult = right('database connected');
 
@@ -41,5 +40,6 @@ export const getDatabase = () => {
 export const tearDown = async () => {
   database.dropDatabase(() => {
     connection.close();
+    connectionResult = left('Sorry database not connected');
   });
 };
