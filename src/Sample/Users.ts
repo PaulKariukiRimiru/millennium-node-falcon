@@ -18,4 +18,14 @@ export class Users {
   firstPost(body, res) {
     res.json(body);
   }
+
+  @falcon.method(MethodTypes.delete, '/')
+  firstdelete(body, res) {
+    res.json(body);
+  }
+
+  @falcon.method(MethodTypes.put, '/')
+  firstput(body, res) {
+    res.json(body);
+  }
 }

@@ -3,14 +3,21 @@ import * as bodyParser from 'body-parser';
 import { FalconEventFunction, MethodTypes } from './interfaces';
 
 let app: Express.Application;
-let functions: FalconEventFunction[] = [];
+let server;
+export let functions: FalconEventFunction[] = [];
 
 export const createServer = async () => {
-  app.listen(8081, async () => {
-    console.log('all engines running on port 8081');
-  })
+  if (!server) {
+    server = app.listen(process.env.PORT, async () => {
+      console.log('all engines running on port 8081');
+    });
+  }
+  return server;
 }
 
+export const getApp = () => app;
+
+export const closeServer = async () => await server.close();
 
 export const method = (methodType: MethodTypes, url: string) =>{
   return (t, n, descriptor) => {
@@ -25,20 +32,7 @@ export const method = (methodType: MethodTypes, url: string) =>{
   }
 }
 
-export const get = (url: string) => {
-  return (t, n, descriptor) => {
-    const falconEvent: FalconEventFunction = {
-      method: MethodTypes.get,
-      url,
-      function: descriptor.value
-    }
-
-    addEndpoint(falconEvent);
-    return descriptor
-  }
-}
-
-const addEndpoint = (endpoint: FalconEventFunction) => {
+export const addEndpoint = (endpoint: FalconEventFunction) => {
   functions = [...functions, endpoint];
   generateEndpoints();
 }
@@ -54,13 +48,22 @@ export const generateEndpoints = () => {
     switch (func.method) {
       case MethodTypes.get:
         app.get(func.url, (req, resp) => {
-          func.function.apply(this, [req.params, resp])
+          func.function.apply({}, [req.params, resp])
         });
         break;
       case MethodTypes.post:
         app.post(func.url, (req, resp) => {
-          console.log(req.body)
-          func.function.apply(this, [req.body, resp])
+          func.function.apply({}, [req.body, resp])
+        });
+        break;
+      case MethodTypes.delete:
+        app.delete(func.url, (req, resp) => {
+          func.function.apply({}, [req.body, resp])
+        });
+        break;
+      case MethodTypes.put:
+        app.put(func.url, (req, resp) => {
+          func.function.apply({}, [req.body, resp])
         });
         break;
       default:
