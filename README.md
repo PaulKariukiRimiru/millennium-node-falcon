@@ -57,4 +57,8 @@ export class Users {
 
 ```
 
+TODO
+
+- [ ] Add infrastructure to allow addition of middleware
+
 And thats it you are ready to code, give it a star if you like it :-)
