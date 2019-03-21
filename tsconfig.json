@@ -1,0 +1,26 @@
+{
+  "compileOnSave": true,
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "ES2017",
+    "allowJs": true,
+    "strict": true,
+    "noImplicitAny": false,
+    "removeComments": true,
+    "preserveConstEnums": true,
+    "sourceMap": true,
+    "baseUrl": ".",
+    "rootDir": ".",
+    "outDir": "dist",
+    "experimentalDecorators": true
+  },
+  "include": [
+      "src/**/*",
+      "**/*.d.ts"
+  ],
+  "exclude": [
+      "node_modules",
+      "**/*.test.ts",
+      "dist"
+  ],
+}
